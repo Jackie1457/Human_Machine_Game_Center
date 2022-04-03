@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #H {
+            color: green;
+        }
+        
+        p {
+            color: red;
+        }
+    </style>
+    <script>
+        function inject(loc, val) {
+            document.getElementById(loc).innerHTML = val;
+        }
+        // alert("Hello World"); // stops everything only alert that's why avoid using alert;
+        var i = 5;
+        // alert(i + 7);
+        // function foo(x) {
+        //     alert(x);
+        // }
+        // var bar = function(x) {
+        //     alert(x);
+        // }
+        // alert(bar(9)); // 先alert 9 然后undefined,因为bar是一个function,是void没有return，所以就是undefined。
+        // foo(i);
+        window.onload = function() {
+                // alert("window onload");
+                inject("H", "Fubar");
+                document.getElementById("H").innerText = "FUBAR";
+            }
+            // document.getElementById("H").innerHTML = "FUBAR";
+
+        function sally() {
+            inject('H', '<button>Fubar</button>' + i++);
+        }
+
+        // function Person(first, last, age) {
+        //     this.first = first;
+        //     this.last = last;
+        //     this.age = age;
+        // }
+        // var p = new Person("John", "Doe", "99");
+        // // alert(p.last);
+        // Person.prototype.name = function() {
+        //     return this.first + " " + this.last;
+        // }
+        // Person.prototype.name2 = function() {
+        //     return this.last + " " + this.first;
+        // }
+        // alert(p.name2());
+    </script>
+</head>
+
+<body>
+    <h1>Heading1</h1>
+    word wrap
+    <p>paragraph 1 text fo<span onclick="sally();">o</span>d <span id="H">drink</span> <b>sleep</b>play</p>
+    <div>This is division.</div>
+    <p style="color: blue;">paragraph 2</p>
+    <button onclick="inject('H','Fubar' + i++)">Click me!</button>
+    <!-- <button onclick="sally();">Click me!</button> -->
+    <p>paragraph 3</p>
+</body>
+
+</html>
